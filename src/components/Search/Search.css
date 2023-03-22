@@ -1,0 +1,170 @@
+.Search {
+    background-image: url('../../img/fon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 250px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.Search-title {
+    color: #fff;
+    font-size: 32px;
+    margin: 0;
+    padding: 30px 0 0 0;
+}
+
+.Search-form {
+    max-width: 50%;
+    padding: 30px 0 0 0;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Search-input {
+    height: 46px;
+    padding: 0 0 0 22px;
+    margin: 0;
+    background-color: #f9f9f9;
+    border: none;
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: 400;
+    color: #000;
+    width: 100%;
+}
+
+.Search-input:focus {
+    outline: 1px solid #2be080;
+}
+
+/* .Search-button {
+    background-image: url("../../img/find.png");
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    position: absolute;
+    top: 38px;
+    right:0;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-sizing: content-box;
+    background-position: center;
+    background-size: 25px;
+    background-color: transparent;
+}
+
+.Search-button_disabled {
+    background-color: #C4C4C4;
+}
+
+.Search-span {
+    color: #ff6838;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+} */
+
+
+/* Style for select */
+
+.Search-selects {
+    display: flex;
+    margin: 0;
+    padding: 37px 0 0 0;
+    justify-content: space-between;
+}
+
+.Search-select {
+    max-width: 550px;
+    min-width: 300px;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.Search-select__active .sSearch-select-body {
+    display: block;
+}
+
+.Search-select-title {
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    width: 175px;
+}
+
+.Search-select-header {
+    display: flex;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+}
+
+.Search-select-body {
+    border: 0.7px solid #f2f2f2;
+    border-top: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 5;
+    display: none;
+    height: 40px;
+    overflow-y: scroll
+}
+
+.Search-select-current {
+    position: relative;
+    height: 28px;
+    font-size: 14px;
+    line-height: 2;
+    font-weight: 500;
+    margin: 0;
+    padding: 0 0 0 4px;
+}
+
+.Search-select-icon {
+    background-image: url("../../img/Shape.svg");
+    background-repeat: no-repeat;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 12px;
+    right: 4px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: center;
+    text-align: center;
+    margin-left: auto;
+}
+
+.Search-select-item {
+    font-size: 14px;
+    line-height: 16.41px;
+    color: #111;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.Search-select-item:hover {
+    font-weight: 500;
+}

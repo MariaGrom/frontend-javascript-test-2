@@ -1,0 +1,30 @@
+.Search-button {
+    background-image: url("../../../img/find.png");
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    position: absolute;
+    top: 103px;
+    right: 312px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-sizing: content-box;
+    background-position: center;
+    background-size: 25px;
+    background-color: transparent;
+}
+
+.Search-button_disabled {
+    background-color: #C4C4C4;
+}
+
+.Search-span {
+    color: #ff6838;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}

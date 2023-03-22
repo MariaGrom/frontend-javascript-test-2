@@ -1,0 +1,54 @@
+.BooksCardList {
+    width: calc(100% - 2 * 70px);
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+  
+  .BooksCardList-list {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 270px);
+    grid-template-rows: repeat(auto-fit, 450px);
+    gap: 32px 20px;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+    margin: 0;
+    width: 100%;
+    border: 1px solid red;
+  }
+  
+  .BooksCardList-notFound{
+    color:rgb(76, 76, 76);
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+    margin: 0;
+    padding: 0 ;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .BooksCardList {
+      width: calc(100% - 2 * 30px);
+    }
+    .BooksCardList-list{
+      grid-template-columns: repeat(auto-fit, 339px);
+      grid-template-rows: repeat(auto-fit, 257px);
+      gap: 36px 30px;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .BooksCardList {
+      width: calc(100% - 2 * 10px);
+    }
+    .BooksCardList-list{
+      padding: 50px 0 80px 0;
+      grid-template-columns: repeat(auto-fit, 300px);
+      grid-template-rows: repeat(auto-fit, 235px);
+      gap: 20px;
+    }
+  
+  }
