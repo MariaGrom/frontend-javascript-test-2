@@ -2,8 +2,6 @@ import React from 'react';
 import './Search.css';
 
 
-
-
 function Search(props) {
   
   return (
@@ -16,8 +14,8 @@ function Search(props) {
           placeholder={props.placeholder}
           onChange={props.handleChange}
         />
-        {/* <button className="Search-button " type="button" onClick={handleClick}>{props.text}</button>
-        <span className="Search-span"> </span> */}
+        <button className="Search-button " type="button" onClick={props.handleClick}></button>
+        <span className="Search-span"> </span>
 
         <div className="Search-selects">
           <div class="Search-select">

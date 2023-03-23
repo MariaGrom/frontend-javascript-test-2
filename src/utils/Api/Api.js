@@ -2,15 +2,11 @@ class Api{
     constructor ({ baseUrl, apiKey}){
         this._baseUrl = baseUrl;
         this._apiKey = apiKey;
-        console.log(this._apiKey)
     }
 
-    search(query) {
-        
-        return fetch(`${this._baseUrl}/books/v1/volumes?q=${query}&key=${this._apiKey}`)
-        
-        // .then(res => res.json())
-        .then(res => console.log('!'))
+    async search(query) {
+        const res = await fetch(`${this._baseUrl}/books/v1/volumes?q=${query}&key=${this._apiKey}`);
+        return await res.json();
     }
 }
 

@@ -1,0 +1,16 @@
+.ButtonLoad{
+    width: 200px;
+    height: 50px;
+    background-color: grey;
+    border: none;
+    color:#fff;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 0 0 30px 0;
+    padding: 0;
+}
+
+.ButtonLoad:hover{
+    background-color: rgb(76, 76, 76);  
+}
