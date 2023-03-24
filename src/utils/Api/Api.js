@@ -12,7 +12,7 @@ class Api{
 
 const api = new Api({
     baseUrl: "https://www.googleapis.com",
-    apiKey: "AIzaSyBdPGPmyXVtSoNGXpZBIqi-YLcjgyOhtj0"
+    apiKey: ""
   });
 
   export default api;
