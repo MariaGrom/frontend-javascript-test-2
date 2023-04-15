@@ -7,7 +7,7 @@ function BookCard(props) {
     const {card, onClick} = props
     return (
         <div>
-            <Link to="/book" onClick={() => onClick(card)}>
+            <Link to="/book" onClick={() => onClick(card)} className='BookCard-link'>
                 <li className="BookCard">
                     <img className="BookCard-image" alt={card.alt} src={card.src} />
                     <div className="BookCard-description">

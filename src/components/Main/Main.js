@@ -1,4 +1,5 @@
 import React from 'react';
+import './Main.css';
 import TotalResults from '../TotalResults/TotalResults';
 import BooksCardList from '../BooksCardList/BooksCardList';
 import ButtonLoad from '../ButtonLoad/ButtonLoad';

@@ -1,6 +1,6 @@
 .BookCard {
     width: 270px;
-    height: 450px;
+    height: 460px;
     margin: 0;
     padding: 0;
     box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.05);
@@ -11,6 +11,9 @@
     justify-content: center;
     cursor: pointer;
 
+}
+.BookCard-link{
+    text-decoration: none;
 }
 
 .BookCard-image {
@@ -26,8 +29,7 @@
     padding: 20px 10px 0 10px;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100px;
+    height: 130px;
 }
 
 .BookCard-category {

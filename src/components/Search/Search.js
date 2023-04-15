@@ -4,6 +4,9 @@ import './Search.css';
 
 function Search(props) {
   
+
+
+
   return (
     <div className="Search">
       <h1 className="Search-title">Search for books</h1>
@@ -13,8 +16,9 @@ function Search(props) {
           className="Search-input"
           placeholder={props.placeholder}
           onChange={props.handleChange}
+          onKeyDown={props.onKeyDown}
         />
-        <button className="Search-button " type="button" onClick={props.handleClick}></button>
+        <button className="Search-button " type="button" onClick={props.handleClick}  ></button>
         <span className="Search-span"> </span>
 
         <div className="Search-selects">
