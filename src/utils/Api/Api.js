@@ -5,7 +5,8 @@ class Api{
     }
 
     async search(query) {
-        const res = await fetch(`${this._baseUrl}/books/v1/volumes?q=${query}&key=${this._apiKey}`);
+        const res = await fetch(`${this._baseUrl}/books/v1/volumes?q=${query}&maxResults=40&key=${this._apiKey}`);
+       
         return await res.json();
     }
 }

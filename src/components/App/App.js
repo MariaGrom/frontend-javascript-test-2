@@ -7,31 +7,71 @@ import { Route, Routes } from 'react-router-dom';
 import BookDescription from '../BookDescription/BookDescription';
 import Main from '../Main/Main';
 
-// Определяем количество отображаемых карточек 
-const displayOfCards = () => {
-  const display = {
-    start: 10,
-    load: 30
-  }
-  return display
-
-}
-
 function App() {
 
-  const display = displayOfCards();
   const [searchQuery, setSearchQuery] = useState('');
   const [submit, setSubmit] = useState(false);
   const [cards, setCards] = useState([]);
   const [foundResults, setFoundResults] = useState('');
   const [selectedCard, setSelectedCard] = useState({});
-  const [displayedCards, setDisplayedCards] = useState(display.start);
+  const [limit, setLimit] = useState(4);
+  // const [renderCards, setRenderCards] = useState(limit)
+  const [filteredCards, setFilteredCards] = useState([])
 
-  const loadingCards = () => {
-    console.log('click')
-    const display = displayOfCards();
-    console.log('display', display)
-    setDisplayedCards(displayedCards + display.load)
+  const [categories, setCategories] = useState([
+    {
+      key: 'all',
+      title: 'all',
+      category: 'all'
+    },
+    {
+      key: 'art',
+      title: 'art',
+      category: 'art'
+    },
+    {
+      key: 'biography',
+      title: 'biography',
+      category: 'biography'
+    },
+    {
+      key: 'computers',
+      title: 'computers',
+      category: 'computers'
+    },
+    {
+      key: 'history',
+      title: 'history',
+      category: 'history'
+    },
+    {
+      key: 'medical',
+      title: 'medical',
+      category: 'medical'
+    },
+    {
+      key: 'poetry',
+      title: 'poetry',
+      category: 'poetry'
+    },
+  ])
+
+
+  // функция фильтрации категорий 
+  function chooseCategory(category) {
+    console.log('category', category)
+    if (category === 'all') {
+      setFilteredCards(cards)
+    } else if (category === 'computers') {
+      const computersCards = [...cards].filter(card => card.category === categories)
+      setFilteredCards(computersCards)
+    }
+  }
+
+
+  const loadMore = () => {
+    setLimit(limit + 4)
+    console.log(limit)
   }
 
   useEffect(() => {
@@ -41,28 +81,10 @@ function App() {
         .then(data => {
           console.log('data', data)
 
-
-          // Надо дописать проверку на наличие свойства smallThumbnail у картинок
-          // если свойство отсуствует, то код по загрузке картинки ломается, и ничего не 
-          // загружается. то есть надо сделать проверку: есть картинка (свойство smallThumbnail)
-          //  рхватай свойство, если нет, то пиши что-то другое 
-          // const srcImg = data.items.map(item => item.volumeInfo.imageLinks)
-          // console.log('srcImg', srcImg);
-          // // console.log(typeof srcImg);
-          // console.log('srcImg', srcImg[0].smallThumbnail);
-          // for (let i = 0; i < srcImg.length; i++) {
-          //   if (srcImg[i].hasOwnProperty('smallThumbnail')) {
-          //     const src = srcImg[i].smallThumbnail
-          //     console.log('src', src)
-          //   } else {
-          //     console.log('img YOK')
-          //   }
-          // }
-
           const result = data.items.map(item => ({
             id: item.id,
-            src: item.volumeInfo.imageLinks.smallThumbnail,
-            srcBig: item.volumeInfo.imageLinks.thumbnail,
+            src: item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail,
+            srcBig: item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail,
             alt: item.volumeInfo.title,
             title: item.volumeInfo.title,
             author: item.volumeInfo.authors,
@@ -73,7 +95,10 @@ function App() {
 
           ))
           setCards(result);
-          console.log(result)
+          // console.log(typeof result)
+          // console.log('results', result)
+          // console.log('result.length',result.length)
+          // setRenderCards(result.slice(0, 5))
           setFoundResults(data.totalItems)
 
         })
@@ -85,20 +110,20 @@ function App() {
 
   }, [submit, searchQuery]);
 
-
-
   const onCardClick = (card) => {
     setSelectedCard(card);
   }
 
-// функция поиска по нажатию на Enter
+  // функция поиска по нажатию на Enter
   const onKeyDown = (e) => {
     if (e.keyCode === 13) {
       e.preventDefault();
-        setSearchQuery(e.target.value)
-        setSubmit(true)
+      setSearchQuery(e.target.value)
+      setSubmit(true)
     }
   }
+
+
 
   return (
     <div className="App">
@@ -106,7 +131,21 @@ function App() {
         placeholder='Search book about ...'
         handleChange={(e) => setSearchQuery(e.target.value)}
         onKeyDown={onKeyDown}
+      // chooseCategory={() => chooseCategory()}
       />
+
+      <div class="Categories">
+        <span class="Categories-title ">Categories</span>
+        <div class="Categories-header">
+          <span class="Categories-current ">all</span>
+          <div class="Categories-icon"></div>
+        </div>
+        <div class="Categories-body">
+          {categories.map(category => (
+            <button type="button" onClick={() => chooseCategory(category)} key={category.key} class="Categories-item text">{category.title}</button >
+          ))}
+        </div>
+      </div>
 
       <Routes>
 
@@ -117,8 +156,9 @@ function App() {
               foundResults={foundResults}
               cards={cards}
               submit={submit}
-              loadingCards={loadingCards}
               onCardClick={onCardClick}
+              onClick={loadMore}
+
             />
           }
         />

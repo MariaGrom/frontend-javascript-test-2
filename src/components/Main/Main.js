@@ -6,19 +6,23 @@ import ButtonLoad from '../ButtonLoad/ButtonLoad';
 import Preloader from '../Preloader/Preloader';
 
 function Main(props) {
+
+    const {foundResults, cards, onCardClick, onClick, submit} = props
+
     return (
         <div className="Main">
 
             < TotalResults
-                foundResults={props.foundResults}
+                foundResults={foundResults}
             />
             <BooksCardList
-                cards={props.cards}
-                onCardClick={props.onCardClick}
+                cards={cards}
+                onCardClick={onCardClick}
             />
-            {props.submit ? <Preloader /> : null}
+            {submit ? <Preloader /> : null}
+            
             <ButtonLoad
-                loadingCards={props.loadingCards}
+                onClick={onClick}
             />
         </div>
     );

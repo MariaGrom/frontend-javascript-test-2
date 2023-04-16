@@ -1,12 +1,9 @@
 import React from 'react';
 import './Search.css';
+import Categories from '../Categories/Categories';
 
 
 function Search(props) {
-  
-
-
-
   return (
     <div className="Search">
       <h1 className="Search-title">Search for books</h1>
@@ -22,7 +19,7 @@ function Search(props) {
         <span className="Search-span"> </span>
 
         <div className="Search-selects">
-          <div class="Search-select">
+          {/* <div class="Search-select">
             <span class="Search-select-title">Categories</span>
             <div class="Search-select-header">
               <span class="Search-select-current">all</span>
@@ -37,7 +34,9 @@ function Search(props) {
               <div class="Search-select-item">medical</div>
               <div class="Search-select-item">poetry</div>
             </div>
-          </div>
+          </div> */}
+
+          {/* <Categories chooseCategory={props.chooseCategory}/> */}
 
           <div class="Search-select">
             <span class="Search-select-title">Sorting by</span>

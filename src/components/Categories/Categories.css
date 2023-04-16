@@ -1,0 +1,16 @@
+.text{
+    color: #000;
+}
+
+.Categories-body{
+    width: 300px;
+    display: inline-block;
+}
+
+.Categories-item{
+cursor: pointer;
+}
+
+.Categories-item:hover{
+background-color: #8f6d6d 
+}
